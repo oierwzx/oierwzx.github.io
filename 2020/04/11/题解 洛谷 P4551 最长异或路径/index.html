@@ -299,16 +299,16 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between">
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
-    <div class="waves-block waves-effect prev">
-      <a href="/2020/04/11/%E5%85%B3%E4%BA%8E%E6%88%91/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/04/11/%E5%85%B3%E4%BA%8E%E6%88%91/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
         <h4 class="title">关于我</h4>
       </a>
     </div>
-  
-
   
 </nav>
 
@@ -331,6 +331,30 @@
 
 
 
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: '5a54d06df7feb8466fcd',
+          clientSecret: 'db941726f5afa429b7534a94ffdaaa34eb15c19d',
+          repo: 'oierwzx.github.io',
+          owner: '',
+          admin: [''],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
 
 
 
